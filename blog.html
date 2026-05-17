@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Suong Vichet</title>
+  <meta name="description" content="Research notes and learning logs by Suong Vichet." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">SV</span><span>Suong Vichet</span></a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#work">Work</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="article-layout">
+    <p class="eyebrow">Knowledge sharing</p>
+    <h1>Blog and research notes</h1>
+    <p class="lead">
+      This is where I collect the things I learn while doing experiments: measurement methods,
+      data analysis, circuit decisions, and small explanations that become useful later.
+    </p>
+
+    <section class="card-grid" aria-label="Blog posts">
+      <article class="card">
+        <p class="tag">Energy harvesting</p>
+        <h3>How to calculate power and harvested energy from measured voltage</h3>
+        <p>A practical note on peak-to-peak voltage, RMS voltage, load resistance, average power, and storage capacitors.</p>
+        <a href="energy-harvesting-from-voltage.html">Read note</a>
+      </article>
+      <article class="card">
+        <p class="tag">Hardware interface</p>
+        <h3>LabVIEW-Arduino interface</h3>
+        <p>A starter project for serial communication between LabVIEW and Arduino, useful for control and data acquisition.</p>
+        <a href="labview-arduino-interface.html">Read note</a>
+      </article>
+      <article class="card">
+        <p class="tag">Coming soon</p>
+        <h3>How I organize experiment data</h3>
+        <p>A future note about naming files, choosing analysis windows, and making comparison tables from raw voltage data.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Suong Vichet. Portfolio, research notes, and engineering experiments.</p>
+  </footer>
+</body>
+</html>

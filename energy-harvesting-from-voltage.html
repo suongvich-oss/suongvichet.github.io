@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power and Energy from Voltage | Suong Vichet</title>
+  <meta name="description" content="How to calculate power and harvested energy from measured voltage in an energy harvesting experiment." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">SV</span><span>Suong Vichet</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="article-layout">
+    <p class="eyebrow">Energy harvesting note</p>
+    <h1>How to calculate power and harvested energy from measured voltage</h1>
+    <p class="article-meta">A practical measurement note for piezoelectric and self-powered sensing experiments.</p>
+
+    <section class="article-card">
+      <h2>The main idea</h2>
+      <p>
+        Voltage is the easiest signal to measure, but voltage alone is not power. To calculate power,
+        I need to know where the voltage was measured: across a load resistor, across a storage capacitor,
+        or in open circuit.
+      </p>
+      <p>
+        If the voltage is measured across a known load resistor, the most useful equation is:
+        <code>P_avg = mean(v(t)^2) / R_load</code>.
+      </p>
+    </section>
+
+    <section class="article-card">
+      <h2>Useful quantities from the voltage waveform</h2>
+      <ul>
+        <li><code>V_max</code>: highest voltage in the selected time window.</li>
+        <li><code>V_min</code>: lowest voltage in the selected time window.</li>
+        <li><code>V_pp = V_max - V_min</code>: peak-to-peak voltage.</li>
+        <li><code>V_rms = sqrt(mean(v(t)^2))</code>: RMS voltage.</li>
+        <li><code>P_avg = V_rms^2 / R_load</code>: average power through the load resistor.</li>
+      </ul>
+    </section>
+
+    <section class="article-card">
+      <h2>Energy delivered to a resistor</h2>
+      <p>
+        For time-series data, calculate instantaneous power at every sample:
+        <code>p_i = v_i^2 / R_load</code>.
+        Then integrate it over time:
+        <code>E = sum(p_i * dt_i)</code>.
+      </p>
+      <p>
+        This is better than using only peak-to-peak voltage because real experimental signals can be pulsed,
+        noisy, or non-sinusoidal.
+      </p>
+    </section>
+
+    <section class="article-card">
+      <h2>Energy stored in a capacitor</h2>
+      <p>
+        If the harvester charges a capacitor, the stored energy is:
+        <code>E_cap = 0.5 * C * (V_end^2 - V_start^2)</code>.
+      </p>
+      <p>
+        The average charging power is:
+        <code>P_avg = E_cap / charging_time</code>.
+      </p>
+    </section>
+
+    <section class="article-card">
+      <h2>My reporting checklist</h2>
+      <ol>
+        <li>State the time window used for analysis.</li>
+        <li>State the load resistor or capacitor value.</li>
+        <li>Report peak-to-peak voltage and RMS voltage.</li>
+        <li>Calculate average power from the waveform.</li>
+        <li>Compare multiple loads to find maximum power, not only maximum voltage.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Suong Vichet. Portfolio, research notes, and engineering experiments.</p>
+  </footer>
+</body>
+</html>

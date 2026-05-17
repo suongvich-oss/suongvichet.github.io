@@ -4,189 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LabVIEW-Arduino Interface | Suong Vichet</title>
-
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fff8f0;
-      color: #2b2b2b;
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: white;
-      border-bottom: 1px solid #ffe1c2;
-      box-shadow: 0 4px 15px rgba(255, 122, 24, 0.08);
-      padding: 20px 24px;
-    }
-
-    .navbar {
-      max-width: 1000px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: 800;
-      color: #ff7a18;
-      font-size: 1.2rem;
-    }
-
-    .back-link {
-      color: #ff7a18;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 24px;
-    }
-
-    .title-box {
-      background: linear-gradient(145deg, #ff7a18, #ffb347);
-      color: white;
-      padding: 45px;
-      border-radius: 30px;
-      margin-bottom: 35px;
-      box-shadow: 0 20px 45px rgba(255, 122, 24, 0.25);
-    }
-
-    .title-box h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .content-card {
-      background: white;
-      border: 1px solid #ffe1c2;
-      border-radius: 26px;
-      padding: 34px;
-      margin-bottom: 25px;
-      box-shadow: 0 12px 30px rgba(255, 122, 24, 0.09);
-    }
-
-    h2 {
-      color: #ff7a18;
-      margin-bottom: 12px;
-    }
-
-    ul {
-      padding-left: 24px;
-    }
-
-    code {
-      background: #fff0df;
-      padding: 3px 7px;
-      border-radius: 6px;
-      color: #d85f00;
-      font-weight: 700;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px;
-      background: #ff7a18;
-      color: white;
-      margin-top: 40px;
-    }
-  </style>
+  <meta name="description" content="A short project note on building a LabVIEW-Arduino serial interface." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Suong Vichet</div>
-      <a href="index.html" class="back-link">← Back to Home</a>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">SV</span><span>Suong Vichet</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+      </div>
     </nav>
   </header>
 
-  <main>
-    <section class="title-box">
-      <h1>LabVIEW-Arduino Interface</h1>
+  <main class="article-layout">
+    <p class="eyebrow">Project note</p>
+    <h1>LabVIEW-Arduino interface</h1>
+    <p class="article-meta">Serial control as a foundation for experimental systems.</p>
+
+    <section class="article-card">
+      <h2>Project overview</h2>
       <p>
-        Serial communication system between LabVIEW and Arduino for controlling outputs
-        and developing experimental engineering interfaces.
+        This project connects LabVIEW and Arduino through serial communication. The first goal is simple:
+        send a command from a LabVIEW interface and use Arduino to control an output. The bigger goal is to
+        build confidence for future measurement systems where software controls hardware and reads sensor data.
       </p>
     </section>
 
-    <section class="content-card">
-      <h2>Project Overview</h2>
-      <p>
-        This project demonstrates how LabVIEW can communicate with an Arduino board
-        through serial communication. The main purpose is to control the Arduino output
-        from a LabVIEW graphical user interface.
-      </p>
-    </section>
-
-    <section class="content-card">
-      <h2>Objective</h2>
+    <section class="article-card">
+      <h2>What I practiced</h2>
       <ul>
-        <li>Develop a basic LabVIEW interface to send commands to Arduino.</li>
-        <li>Control the Arduino built-in LED using serial commands.</li>
-        <li>Understand serial communication between software and hardware.</li>
-        <li>Prepare a foundation for future sensor acquisition and actuator control systems.</li>
+        <li>Opening and configuring a serial COM port.</li>
+        <li>Sending simple commands from LabVIEW to Arduino.</li>
+        <li>Controlling an Arduino output from a graphical interface.</li>
+        <li>Thinking about how the same idea can support sensor acquisition and actuator control.</li>
       </ul>
     </section>
 
-    <section class="content-card">
-      <h2>Hardware and Software</h2>
+    <section class="article-card">
+      <h2>Command concept</h2>
+      <p>The first version uses two commands:</p>
       <ul>
-        <li>Arduino board</li>
-        <li>USB cable</li>
-        <li>LabVIEW software</li>
-        <li>Arduino IDE</li>
-        <li>Serial communication through COM port</li>
+        <li><code>1</code> turns the LED on.</li>
+        <li><code>2</code> turns the LED off.</li>
       </ul>
+      <p>
+        After this works, the same structure can be expanded to read sensors, control motors, trigger tests,
+        or synchronize an experiment with data recording.
+      </p>
     </section>
 
-    <section class="content-card">
-      <h2>Serial Command Concept</h2>
-      <p>
-        The LabVIEW interface sends simple character commands to Arduino.
-      </p>
-
+    <section class="article-card">
+      <h2>Future improvement</h2>
       <ul>
-        <li><code>1</code> → Turn LED ON</li>
-        <li><code>2</code> → Turn LED OFF</li>
-      </ul>
-    </section>
-
-    <section class="content-card">
-      <h2>Arduino Code Concept</h2>
-      <p>
-        The Arduino continuously checks whether serial data is available. If the received
-        character is <code>1</code>, the LED turns ON. If the received character is
-        <code>2</code>, the LED turns OFF.
-      </p>
-    </section>
-
-    <section class="content-card">
-      <h2>Result</h2>
-      <p>
-        The Arduino LED can be controlled from the LabVIEW interface by sending serial
-        commands. This confirms that the communication between LabVIEW and Arduino is working.
-      </p>
-    </section>
-
-    <section class="content-card">
-      <h2>Future Improvement</h2>
-      <ul>
-        <li>Add feedback from Arduino to LabVIEW.</li>
-        <li>Display sensor data in real time.</li>
-        <li>Control multiple LEDs, relays, or motors.</li>
-        <li>Use the interface for data acquisition in mechanical testing systems.</li>
+        <li>Add feedback from Arduino back to LabVIEW.</li>
+        <li>Plot sensor data in real time.</li>
+        <li>Control multiple outputs such as relays, motors, or test fixtures.</li>
+        <li>Use the interface for repeatable mechanical testing and dynamic sensing experiments.</li>
       </ul>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Suong Vichet. Engineering Portfolio and Research Log.</p>
+  <footer class="site-footer">
+    <p>© 2026 Suong Vichet. Portfolio, research notes, and engineering experiments.</p>
   </footer>
 </body>
 </html>
