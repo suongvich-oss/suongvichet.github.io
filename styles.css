@@ -206,6 +206,11 @@ h3 {
   margin-bottom: 28px;
 }
 
+.section-intro {
+  max-width: 720px;
+  color: var(--muted);
+}
+
 .focus-grid,
 .card-grid,
 .contact-grid {
@@ -257,6 +262,98 @@ h3 {
   display: inline-block;
   margin-top: 8px;
   font-weight: 800;
+}
+
+.highlight-slider {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.highlight-slide {
+  display: none;
+  grid-template-columns: minmax(0, 1.15fr) minmax(310px, 0.85fr);
+  min-height: 430px;
+}
+
+.highlight-slide.is-active {
+  display: grid;
+}
+
+.highlight-slide img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  object-fit: cover;
+  border-right: 1px solid var(--line);
+}
+
+.highlight-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 42px;
+}
+
+.highlight-copy h3 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.highlight-copy p:not(.tag) {
+  color: var(--muted);
+}
+
+.highlight-copy a {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.highlight-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-top: 1px solid var(--line);
+  background: #fbf8f1;
+}
+
+.slider-button {
+  min-width: 92px;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--accent-dark);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.slider-button:hover,
+.slider-dot.is-active {
+  background: var(--accent);
+  color: white;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
 }
 
 .contact-section {
@@ -337,7 +434,9 @@ code {
   .two-column,
   .focus-grid,
   .card-grid,
-  .contact-grid {
+  .contact-grid,
+  .highlight-slide,
+  .highlight-slide.is-active {
     grid-template-columns: 1fr;
   }
 
@@ -353,5 +452,24 @@ code {
 
   .nav-links {
     flex-wrap: wrap;
+  }
+
+  .highlight-slide img {
+    min-height: 260px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .highlight-copy {
+    padding: 28px;
+  }
+
+  .highlight-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .slider-button {
+    width: 100%;
   }
 }
